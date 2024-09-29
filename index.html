@@ -266,6 +266,7 @@
                 online courses to stay updated with the latest trends in technology. My goal is to become a full-stack developer and contribute to impactful projects that solve real-world problems.
                 I'm always open to collaborating on exciting projects, so feel free to connect!
             </p>
+            </p>
         </section>
 
         <!-- Skills Section -->
@@ -305,21 +306,34 @@
         <section id="contact" class="secondsection section">
             <h2>Contact Me</h2>
             <hr>
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="ce899667-4de4-48d2-84f0-476d19d58469">
+                
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
-
+        
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-
+        
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}" title="Enter a valid 10-digit mobile number">
+        
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <input type="submit" value="Send Message">
+                <textarea id="message" name="message" rows="3" required></textarea>
+        
+                <input type="submit" value="Send Message" class="btn">
             </form>
         </section>
+        
     </main>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Designer', 'Python Developer', 'Video Editor', 'Photo Editor','Web Developer'],
+            typeSpeed: 50,
+        });
+    </script>
 </body>
 
 </html>
