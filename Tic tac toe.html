@@ -8,28 +8,25 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
         body {
             text-align: center;
             background-color: teal;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
         }
         .container {
+            height: 70vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .game {
+            height: 60vh;
+            width: 60vh;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 1vh;
+            gap: 1.5vh;
         }
         .box {
             height: 18vh;
@@ -43,88 +40,66 @@
             justify-content: center;
             align-items: center;
             background-color: rgb(240, 240, 125);
-            transition: background-color 0.3s;
         }
         .box:hover {
             cursor: pointer;
-            background-color: rgb(240, 230, 150);
         }
         #btn {
-            margin-top: 2rem;
-            padding: 1rem 2rem;
+            height: 5vh;
+            width: 22vh;
             font-size: 1rem;
             border-radius: 7px;
             border: none;
             box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
             background-color: black;
             color: white;
-            transition: background-color 0.3s;
         }
         #btn:hover {
+            cursor: pointer;
             background-color: rgb(255, 0, 0);
         }
         h1 {
             background-color: white;
-            margin-bottom: 2rem;
-            padding: 0.5rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            width: 60vh;
             border-radius: 1rem;
-            width: 100%;
-            max-width: 60vh;
         }
         #msg {
             color: white;
-            font-size: 2.5vh;
-            margin-top: 1rem;
+            font-size: 4vh;
         }
-        .msg-container {
+        .hide {
             display: none;
         }
-        .show {
-            display: block;
-        }
-
-        /* Responsive styling for smaller screens */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .box {
-                height: 12vh;
-                width: 12vh;
-                font-size: 10vh;
+            .game {
+                width: 80vw;
+                height: 80vw;
             }
-            #btn {
-                width: 80%;
-                padding: 0.8rem;
+            .box {
+                width: 24vw;
+                height: 24vw;
+                font-size: 12vw;
             }
             h1 {
-                font-size: 1.5rem;
-            }
-            #msg {
-                font-size: 2vh;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .box {
-                height: 10vh;
-                width: 10vh;
-                font-size: 8vh;
+                width: 80vw;
+                font-size: 5vw;
             }
             #btn {
-                width: 90%;
-                padding: 0.7rem;
-            }
-            h1 {
-                font-size: 1.3rem;
-                padding: 0.5rem;
+                width: 50vw;
+                font-size: 4vw;
             }
             #msg {
-                font-size: 1.8vh;
+                font-size: 6vw;
             }
         }
     </style>
 </head>
 <body>
-    <h1>TIC TAC TOE</h1> 
-    <div class="msg-container" id="msg-container">
+    <center><h1>TIC TAC TOE</h1></center> 
+    <div class="msg-container hide">
         <p id="msg">Winner</p>
     </div>
     <div class="container">
@@ -145,7 +120,7 @@
     <script>
         let boxes = document.querySelectorAll(".box");
         let resetBtn = document.querySelector("#btn");
-        let msgcontainer = document.querySelector("#msg-container");
+        let msgcontainer = document.querySelector(".msg-container");
         let msg = document.querySelector("#msg");
 
         let turnO = true;
@@ -164,6 +139,7 @@
         boxes.forEach((box) => {
             box.addEventListener("click", () => {
                 if (box.innerText === "") { 
+                    console.log("box was clicked");
                     if (turnO) {
                         box.innerText = "O";
                         turnO = false;
@@ -179,7 +155,7 @@
 
         const showWinner = (winner) => {
             msg.innerText = `Congratulations! Winner is ${winner}`;
-            msgcontainer.classList.add("show"); 
+            msgcontainer.classList.remove("hide"); 
         }
 
         const checkwinner = () => {
@@ -190,6 +166,7 @@
 
                 if (pos1val !== "" && pos2val !== "" && pos3val !== "") {
                     if (pos1val === pos2val && pos2val === pos3val) {
+                        console.log("winner", pos1val);
                         showWinner(pos1val);
                     }
                 }
@@ -201,7 +178,7 @@
                 box.innerText = "";
                 box.classList.remove("clicked");
             });
-            msgcontainer.classList.remove("show"); 
+            msgcontainer.classList.add("hide"); 
             turnO = true;
         });
     </script>
