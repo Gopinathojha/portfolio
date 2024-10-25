@@ -45,8 +45,64 @@
             color: white;
         }
 
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 70%;
+            max-width: 400px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
         .left {
             font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .left img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
         }
 
         .firstsection {
@@ -61,7 +117,7 @@
 
         .leftsection {
             font-size: 3rem;
-            margin-top: 130px;
+            margin-top: 90px;
         }
 
         .clr {
@@ -125,8 +181,22 @@
         }
 
         .skills-icons img {
+            position: relative;
             width: 60px;
             height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 0 25px navy;
+
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+        }
+
+        .skills-icons img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 5px aqua,
+                0 0 5px aqua,
+                0 0 30px aqua;
         }
 
         .project-card {
@@ -134,6 +204,15 @@
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+        }
+
+        .project-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 10px aqua, 0 0 10px aqua, 0 0 30px aqua;
+            cursor: pointer;
+
         }
 
         .project-card h3 {
@@ -224,11 +303,15 @@
 
 <body>
     <nav>
-        <div class="left">G O P I N A T H</div>
+        <div class="left">
+            <img src="dp1.jpeg" alt="Profile Picture" id="profileImg" style="cursor: pointer;">
+            G O P I N A T H
+        </div>
+
         <div class="right">
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact Me</a></li>
@@ -236,13 +319,24 @@
         </div>
     </nav>
 
+    <div id="myModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImg" alt="Profile Full Image">
+    </div>
+
     <main id="home">
         <section class="firstsection">
             <div class="leftsection">Hii, My name is <span class="clr">Gopinath</span> <br> and I am a passionate<br>
-                <span id="element"></span>
+                <span id="element"></span><br><br>
+                <p style="font-size: 1.1rem;font-family: Garamond, serif;">Hello, I'm an aspiring software developer
+                    with a passion for web development and design.
+                    I enjoy creating dynamic, user-friendly websites and applications using the latest technologies.
+                </p>
                 <div class="buttons">
-                    <a href="https://drive.google.com/file/d/12iGdyKvtHm9iGjPCaHfP1wE3EB9k5vX0/view?usp=sharing" class="btn" download>Download Resume</a>
-                    <a href="https://github.com/Gopinathojha" class="btn" target="_blank">Visit Github</a>
+                    <a href="https://drive.google.com/file/d/12iGdyKvtHm9iGjPCaHfP1wE3EB9k5vX0/view?usp=sharing"
+                        class="btn" download>Resume</a>
+                    <a href="https://github.com/Gopinathojha" class="btn">Github</a>
+                    <a href="https://www.linkedin.com/in/gopinath-ojha-1306a0306/" class="btn">linkedin</a>
                 </div>
             </div>
 
@@ -252,21 +346,21 @@
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="secondsection section">
-            <h2>About Me</h2>
+        <section id="education" class="secondsection section">
+            <h2>Education</h2>
             <hr>
-            <p>
-                Hello, I'm Gopinath Ojha, an aspiring software developer with a passion for web development and design.
-                I enjoy creating dynamic, user-friendly websites and applications using the latest technologies. I am
-                dedicated to continuous learning and thrive on building projects that solve real-world problems.
-            </p>
-            <br>
-            <p>
-                Outside of coding, I enjoy playing badminton and singing songs. I believe in continuous learning and often participate in
-                online courses to stay updated with the latest trends in technology. My goal is to become a full-stack developer and contribute to impactful projects that solve real-world problems.
-                I'm always open to collaborating on exciting projects, so feel free to connect!
-            </p>
-            </p>
+            <ul>
+                <li>Pursuing Master in Computer Application, Trident Academy of Creative Technology, BBSR (2023-2025)
+                </li>
+                <br>
+                <li>Completed graduation in Comp. Sc from Luipa Degree Mahavidyalaya, Udala with 87% (2020-2023)</li>
+                <br>
+                <li>Completed CHSE in Sai Higher Secondary School, Baripada with 64% (2018-2020)</li>
+                <br>
+                <li>Completed Matriculation from Sri Aurobindo center of Integral School, Udala with 62% (2018)</li>
+                <br>
+                <li>Completed Diploma in computer application from OCA with 86% (2024)</li>
+            </ul>
         </section>
 
         <!-- Skills Section -->
@@ -289,8 +383,30 @@
             <h2>Projects</h2>
             <hr>
             <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Brief description of project 1.</p>
+                <h3>Project 1</h3><br>
+                <p>
+                <h4>Description:</h4>
+                The Tic Tac Toe game is a simple two-player game built with JavaScript, HTML, and CSS, allowing
+                users to play in their browsers. Players take turns marking X or O on a 3x3 grid, aiming to align
+                three marks in a row.
+                <br><br>
+                <h4>Features:</h4>
+                <ul>
+                    <li>User-friendly interface for easy gameplay.</li>
+                    <li>Real-time updates and winner detection.</li>
+                    <li>Responsive design for desktop and mobile.</li>
+                    <li>Reset functionality for new games.</li>
+                </ul>
+                <br>
+                <h4>Technologies Used:</h4>
+                HTML, CSS, JavaScript.
+
+                <br><br>
+                <h4>Outcome:</h4>
+                This project showcases my ability to create interactive web applications and implement basic game logic,
+                highlighting my skills in web development.
+
+                </p>
             </div>
             <div class="project-card">
                 <h3>Project 2</h3>
@@ -308,31 +424,55 @@
             <hr>
             <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="ce899667-4de4-48d2-84f0-476d19d58469">
-                
+
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
-        
+
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-        
+
                 <label for="mobile">Mobile Number:</label>
-                <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}" title="Enter a valid 10-digit mobile number">
-        
+                <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}"
+                    title="Enter a valid 10-digit mobile number">
+
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="3" required></textarea>
-        
+
                 <input type="submit" value="Send Message" class="btn">
             </form>
         </section>
-        
+
     </main>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
         var typed = new Typed('#element', {
-            strings: ['Web Designer', 'Python Developer', 'Video Editor', 'Photo Editor','Web Developer'],
+            strings: ['Web Designer', 'Python Developer', 'Video Editor', 'Photo Editor', 'Web Developer'],
             typeSpeed: 50,
         });
+
+        var modal = document.getElementById("myModal");
+        var img = document.getElementById("profileImg");
+        var modalImg = document.getElementById("modalImg");
+        var closeModal = document.getElementById("closeModal");
+
+
+        img.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
+
+
+        closeModal.onclick = function () {
+            modal.style.display = "none";
+        }
+
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 
